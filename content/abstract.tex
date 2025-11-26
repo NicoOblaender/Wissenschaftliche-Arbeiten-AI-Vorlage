@@ -1,0 +1,29 @@
+%!TEX root = ../main.tex
+
+
+\makeatletter
+\renewenvironment{abstract}{%
+    \thispagestyle{empty}
+    \@beginparpenalty\@lowpenalty
+    \begin{center}%
+        \bfseries \abstractname
+        \@endparpenalty\@M
+    \end{center}
+}%
+
+{\par\vfil\null}
+\makeatother
+
+\begin{abstract}
+% Abstract in Deutsch
+Deutsches Abstract
+
+\end{abstract}
+
+\begin{otherlanguage}{english}
+    \begin{abstract}
+    % Abstract in Englisch
+English Abstract
+
+    \end{abstract}
+\end{otherlanguage}
