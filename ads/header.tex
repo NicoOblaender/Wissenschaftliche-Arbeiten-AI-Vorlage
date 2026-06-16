@@ -149,7 +149,7 @@
         % style=\quoteStyle,
         style=authoryear,
         autocite=footnote,
-        backref=true, %Fügt im Literaturverzeichniss die Seiten an, auf denen die Quelle verwendet wurde
+        backref=true, % Adds back references in the bibliography to the pages where the source was cited
     ]{biblatex}
     \DefineBibliographyStrings{german}{andothers={et\addabbrvspace al\adddot}}
 }
@@ -175,10 +175,10 @@
 \addbibresource{bibliographie.bib}
 % \addbibresource{T1000.bib}
 
-% Hurenkinder und Schusterjungen verhindern
+% Prevent widows and orphans
 % http://projekte.dante.de/DanteFAQ/Silbentrennung
-\clubpenalty = 10000 % schließt Schusterjungen aus (Seitenumbruch nach der ersten Zeile eines neuen Absatzes)
-\widowpenalty = 10000 % schließt Hurenkinder aus (die letzte Zeile eines Absatzes steht auf einer neuen Seite)
+\clubpenalty = 10000 % Prevents orphans (page break after the first line of a new paragraph)
+\widowpenalty = 10000 % Prevents widows (the last line of a paragraph is on a new page)
 \displaywidowpenalty=10000
 
 % Graphicspath

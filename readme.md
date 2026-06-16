@@ -54,20 +54,26 @@ In der Datei document.tex müssen einige Angaben über die zu schreibende Arbeit
 | Variable            | Beschreibung                                           | Mögliche Werte                                                                                                                                                                                                       |
 | ------------------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | documentLanguage    | Sprache der Arbeit                                     | de<br/> en                                                                                                                                                                                                           |
-| documentType        | Art der Arbeit                                         | T2\\_1000 Projektarbeit (Semester 1 & 2) <br/> T2\\_2000 Projektarbeit (Semester 3 & 4) <br/> T2\\_3100 Studienarbeit (Semester 5) <br/> T2\\_3300 Bachelorarbeit <br/> Für andere Arbeiten den Typ direkt eintragen |
+| documentType        | Art der Arbeit                                         | T1000 Projektarbeit (Semester 1 & 2) <br/> T2000 Projektarbeit (Semester 3 & 4) <br/> T3000 Projektarbeit (Semester 5 & 6) <br/> T3100 Studienarbeit (Semester 5 & 6) <br/> T3300 Bachelorarbeit                     |
+| showCompanyLogo     | Ob das Firmenlogo auf dem Deckblatt gezeigt werden soll| true <br/> false                                                                                                                                                                                                     |
+| showGenderNote      | Ob der Gender-Hinweis eingebunden werden soll          | true <br/> false                                                                                                                                                                                                     |
+| showAppendix        | Ob der Anhang eingebunden werden soll                  | true <br/> false                                                                                                                                                                                                     |
+| lofMinEntries       | Generierungs-Modus Abbildungsverzeichnis               | 0: Nie <br/> 1: Ab 1 Eintrag (Default) <br/> 2: Ab 3 Einträgen                                                                                                                                                       |
+| lolMinEntries       | Generierungs-Modus Listings-Verzeichnis                | 0: Nie <br/> 1: Ab 1 Eintrag (Default) <br/> 2: Ab 3 Einträgen                                                                                                                                                       |
+| lotMinEntries       | Generierungs-Modus Tabellenverzeichnis                 | 0: Nie <br/> 1: Ab 1 Eintrag (Default) <br/> 2: Ab 3 Einträgen                                                                                                                                                       |
 | multipleAuthors     | Wurde die Arbeit von mehreren Autoren verfasst?        | true<br/> false                                                                                                                                                                                                      |
 | documentAuthor      | Autor der Arbeit                                       |                                                                                                                                                                                                                      |
 | documentTitle       | Titel der Arbeit                                       |                                                                                                                                                                                                                      |
 | documentPeriod      | Dauer der Arbeit                                       |                                                                                                                                                                                                                      |
 | matriculationNumber | Matrikelnummer des Autors                              |                                                                                                                                                                                                                      |
-| locationUniversity  | Standort der DHBW                                      | Heidenheim                                                                                                                                                                                                           |
+| locationUniversity  | Standort der DHBW                                      | Mosbach                                                                                                                                                                                                              |
 | department          | Fakultät der DHBW in der sich der Autor befindet       |                                                                                                                                                                                                                      |
 | course              | Kurs in dem sich der Autor befindet                    |                                                                                                                                                                                                                      |
 | degree              | Abschluss, welcher mit dieser Arbeit angestrebt wird   | Bachelor of Science (INF2014-MI - INF2016-MI) <br/> Bachelor of Engineering (INF2014-IA/IM - INF2016-IA/IM) <br/> Bachelor of Science  (INF2017-IM/MI/IA)                                                            |
 | lecture             | Vorlesung, für die die Arbeit geschrieben wurde        |                                                                                                                                                                                                                      |
 | showLecture         | Ob die Vorlesung auf dem Deckblatt gezeigt werden soll | true <br/> false                                                                                                                                                                                                     |
 | releaseDate         | Abgabedatum                                            |                                                                                                                                                                                                                      |
-| releaseLocation     | Abgabeort                                              | Heidenheim                                                                                                                                                                                                           |
+| releaseLocation     | Abgabeort                                              | Mosbach                                                                                                                                                                                                              |
 | companyName         | Name des Unternehmens in dem der Autor angestellt ist  |                                                                                                                                                                                                                      |
 | companyLocation     | Firmensitz                                             |                                                                                                                                                                                                                      |
 | tutor               | Betrieblicher Betreuer der Arbeit                      |                                                                                                                                                                                                                      |
@@ -82,19 +88,24 @@ In der Datei document.tex müssen einige Angaben über die zu schreibende Arbeit
 
 Das Template bietet die folgenden verschiedenen Document Types an:
 
-* T2_1000 Project Thesis (Semester 1 & 2)
-* T2_2000 Project Thesis (Semester 3 & 4)
-* T2_3100 Seminar Paper (Semester 5 & 6)
-* T2_3300 Bachelor Thesis
+* T1000 Project Thesis (Praxissemester 1 & 2)
+* T2000 Project Thesis (Praxissemester 3 & 4)
+* T3000 Project Thesis (Praxissemester 5 & 6)
+* T3100 Seminar Paper (Semester 5 & 6)
+* T3300 Bachelor Thesis
 * Sonstige
 
 Das Template passt alle relevanten Einstellungen automatisch an, sobald der Document Type geändert wird.
 
 ## Document Type spezifische Besonderheiten
 
-### T2_3100
+### T1000 & T3000 (Projektarbeiten)
 
-Die Studienarbeit ist eine reine Hochschularbeit. Aus diesem Grund wird der Ort der Firma und der Sperrvermerk entfernt. Desweiteren ist es möglich die Studienarbeit als Gruppe abzugeben. Hierfür gibt es die Variable multipleAuthors. Ist diese auf true gesetzt, passt sich die Eigenständigkeitserklärungs selbst von der Ich- zur Wir-Form an. Mehrere Autoren sind lediglich mit Komma getrent in die Variable documentAuthor einzutragen.
+Bei diesen Projektarbeiten wird die Arbeit primär vom betrieblichen Betreuer (Tutor) bewertet. Das Feld für den DHBW-Gutachter (Evaluator) wird daher auf dem Deckblatt automatisch ausgeblendet. (Die T2000 bildet eine Ausnahme, hier werden beide Gutachter angezeigt).
+
+### T3100 (Studienarbeit / Seminar Paper)
+
+Die Studienarbeit ist eine reine Hochschularbeit. Aus diesem Grund werden das Unternehmenslogo, die Nennung der Firma sowie der betriebliche Betreuer auf dem Deckblatt automatisch ausgeblendet. Ebenso entfällt der Sperrvermerk komplett. Der Bearbeitungszeitraum wird auf dem Deckblatt automatisch auf "2 Semester" gesetzt. Des Weiteren ist es möglich, die Studienarbeit als Gruppe abzugeben. Hierfür gibt es die Variable `multipleAuthors`. Ist diese auf `true` gesetzt, passt sich die Eigenständigkeitserklärung selbst von der Ich- zur Wir-Form an. Mehrere Autoren sind lediglich mit Komma getrennt in die Variable `documentAuthor` einzutragen.
 
 ### Sonstige
 
@@ -110,26 +121,40 @@ The terms précis or synopsis are used in some publications to refer to the same
 
 Quelle: <http://en.wikipedia.org/wiki/Abstract_(summary>)
 
-## Acronyms
+## Glossar und Abkürzungen (Glossaries & Acronyms)
 
-Nur verwendete Akronyme werden letztlich im Abkürzungsverzeichnis des Dokuments angezeigt.
+Die Vorlage verwendet das leistungsstarke Paket `glossaries`, um sowohl Abkürzungen als auch Glossareinträge zentral zu verwalten. 
 
-Verwendung:  
+### Einfache Glossareinträge und Abkürzungen
 
-* `\ac{Abk.}`   --> fügt die Abkürzung ein, beim ersten Aufruf wird zusätzlich automatisch die ausgeschriebene Version davor eingefügt bzw. in einer Fußnote (hierfür muss in header.tex \usepackage[printonlyused,footnote]{acronym} stehen) dargestellt
-* `\acs{Abk.}`   -->  fügt die Abkürzung ein
-* `\acf{Abk.}`   --> fügt die Abkürzung UND die Erklärung ein
-* `\acl{Abk.}`   --> fügt nur die Erklärung ein
-* `\acp{Abk.}`  --> gibt Plural aus (angefügtes 's'); das zusätzliche 'p' funktioniert auch bei obigen Befehlen
+Du kannst Standard-Glossareinträge oder einfache Abkürzungen in der Datei `content/glossary.tex` definieren:
+* `\newglossaryentry{label}{name={Begriff}, description={Erklärung}}`
+* `\newacronym{label}{Abk.}{Ausgeschriebene Form}`
 
-Siehe auch: [http://golatex.de/wiki/\acronym](http://golatex.de/wiki/%5Cacronym)
+### Verknüpfte Abkürzungen mit Glossareintrag
 
-Beispiel:
+Oft möchte man eine Abkürzung im Text verwenden, aber diese gleichzeitig im Glossar ausführlich erklären lassen. Dafür stellt die Vorlage den Befehl `\newglossarywacronym` zur Verfügung.
 
+**Verwendung:**
+`\newglossarywacronym[Alternativer Text für erste Nennung]{Label}{Ausgeschriebene Form}{Ausführliche Beschreibung}`
+
+**Beispiel:**
 ```LaTeX
-\acro{AGPL}{Affero GNU General Public License}
-\acro{WSN}{Wireless Sensor Network}
+\newglossarywacronym{API}{Application Programming Interface}{Eine API ist eine Programmierschnittstelle...}
+\newglossarywacronym[User Interface (englisch für Benutzeroberfläche)]{UI}{User Interface}{Ein UI ist die Benutzeroberfläche...}
 ```
+
+**Verwendung im Text:**
+Mit dem Befehl `\gls{Label}` referenzierst du den Eintrag im Text. 
+* Beim **ersten Aufruf** wird standardmäßig die Langform und dahinter die Abkürzung gedruckt: *Application Programming Interface (API)*. Wurde jedoch der optionale Zusatz angegeben, ersetzt dieser die Langform komplett: *User Interface (englisch für Benutzeroberfläche) (UI)*
+* Bei **allen weiteren Aufrufen** wird nur noch die Kurzform (Abkürzung) gedruckt: *API* bzw. *UI*
+
+Darüber hinaus erzeugt dieser Befehl automatisch einen Querverweis, der die Abkürzung sauber mit dem ausführlichen Glossareintrag verlinkt.
+
+Weitere Befehle für den Text:
+* `\gls{Label}`   --> Standardaufruf (schreibt beim ersten Mal Lang+Kurz, danach Kurz)
+* `\glspl{Label}` --> Plural (hängt ein "s" an)
+* `\glsdisp{Label}{Eigener Text}` --> Verlinkt auf das Label, zeigt aber deinen eigenen Text an.
 
 ## Appendix
 
