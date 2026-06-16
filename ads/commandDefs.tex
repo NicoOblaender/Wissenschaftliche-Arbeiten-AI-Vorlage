@@ -21,3 +21,13 @@
             {T3300}{#2\ignorespaces}%
     }[#1\ignorespaces]%
 }
+
+% ifShowAppendix definition
+\newcommand{\ifShowAppendix}[2]{%
+    \IfStrEq{\showAppendix}{true}{#1}{#2}%
+}
+
+% ifShowGenderNote definition
+\newcommand{\ifShowGenderNote}[2]{%
+    \IfStrEq{\showGenderNote}{true}{#1}{#2}%
+}

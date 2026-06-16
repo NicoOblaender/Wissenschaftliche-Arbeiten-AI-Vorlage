@@ -65,6 +65,11 @@
 \counterwithout{footnote}{chapter}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
+\usepackage{totcount}
+\regtotcounter{figure}
+\regtotcounter{table}
+\regtotcounter{lstlisting}
+\usepackage{ifthen}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{\documentFont}

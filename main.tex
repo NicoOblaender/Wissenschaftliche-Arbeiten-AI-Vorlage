@@ -1,7 +1,7 @@
 %!TEX root =./main.tex
 % arara: pdflatex
 % arara: makeglossaries
-% arara: biber 
+% arara: biber
 % arara: pdflatex while changed('bbl') || changed('gls') || found('log', 'Please rerun') || found('log', 'Label(s) may have changed')
 
 %%**************************************************************
@@ -23,7 +23,7 @@
 
 % Cover
 \begin{spacing}{1}
-    \input{ads/cover}
+  \input{ads/cover}
 \end{spacing}
 \newpage
 
@@ -31,15 +31,21 @@
 
 % Restriction notices
 \ifDocType{T3100}{%
-    % no restricition notices for semester paper
+  % no restricition notices for semester paper
 }{%
-    \input{ads/restrictionNotices}
-    \newpage
+  \input{ads/restrictionNotices}
+  \newpage
 }%
 
 % Declaration
 \input{ads/declaration}
 \newpage
+
+% Gender
+\ifShowGenderNote{%
+  \input{ads/genderNote.tex}
+  \newpage
+}{}
 
 % Abstract
 \input{content/abstract}
@@ -53,33 +59,48 @@
 
 % Contents
 \begin{spacing}{1.05} %standart 1.05 - 0.052 = 0.998
-\begingroup
+  \begingroup
 
-% set subchapter depth
-\setcounter{tocdepth}{2}
+  % set subchapter depth
+  \setcounter{tocdepth}{2}
 
-\tableofcontents
-\clearpage
-\endgroup
+  \tableofcontents
+  \cleardoublepage
+  \endgroup
 
-\newpage
+  % Acronyms
+  \cleardoublepage
+  \printglossary[type=main, title={\acronymsPhrase}, style=index]
 
-% Acronyms
-\cleardoublepage
-\printglossary[type=main, title={\acronymsPhrase}, style=index]
+  % List of Figures
+  \ifthenelse{\lofMinEntries = 0}{}{%
+    \ifthenelse{\lofMinEntries = 2 \AND \totvalue{figure} < 3}{}{%
+      \ifthenelse{\totvalue{figure} < 1}{}{%
+        \cleardoublepage
+        \listoffigures
+      }%
+    }%
+  }
 
-% List of Figures
-\cleardoublepage
-\listoffigures
+  %List of Tables
+  \ifthenelse{\lotMinEntries = 0}{}{%
+    \ifthenelse{\lotMinEntries = 2 \AND \totvalue{table} < 3}{}{%
+      \ifthenelse{\totvalue{table} < 1}{}{%
+        \cleardoublepage
+        \listoftables
+      }%
+    }%
+  }
 
-%List of Tables
-% \cleardoublepage
-% \listoftables
-
-% List of Listings
-\cleardoublepage
-\lstlistoflistings
-\cleardoublepage
+  % List of Listings
+  \ifthenelse{\lolMinEntries = 0}{}{%
+    \ifthenelse{\lolMinEntries = 2 \AND \totvalue{lstlisting} < 3}{}{%
+      \ifthenelse{\totvalue{lstlisting} < 1}{}{%
+        \cleardoublepage
+        \lstlistoflistings
+      }%
+    }%
+  }
 
 \end{spacing}
 
@@ -88,15 +109,16 @@
 \pagestyle{headings}
 
 \lstset{literate=%
-    {Ö}{{\"O}}1
-    {Ä}{{\"A}}1
-    {Ü}{{\"U}}1
-    {ß}{{\ss}}1
-    {ü}{{\"u}}1
-    {ä}{{\"a}}1
-    {ö}{{\"o}}1
-    {~}{{\textasciitilde}}1
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1
+  {~}{{\textasciitilde}}1
 }
+\lstset{breaklines=false, showstringspaces=false}
 
 \input{content/chapter/01.tex}
 \input{content/chapter/02.tex}
@@ -112,7 +134,7 @@
 
 \cleardoublepage
 \begin{spacing}{1.175}
-    \printbibliography
+  \printbibliography
 \end{spacing}
 
 % Glossar
@@ -121,15 +143,16 @@
 % \input{content/glossary}
 
 % Appendix
-\clearpage
+\ifShowAppendix{
+  \clearpage
 
-\begin{appendices}
+  \begin{appendices}
     % \chapter{Test}
-
 
     \appendixtoc
     % \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
     \input{content/appendix}
     % \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
-\end{appendices}
+  \end{appendices}
+}{}
 \end{document}
