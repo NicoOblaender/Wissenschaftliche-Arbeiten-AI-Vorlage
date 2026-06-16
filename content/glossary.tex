@@ -1,7 +1,7 @@
 %!TEX root = ../main.tex
 
 %
-% To create glossary run the following command: 
+% To create glossary run the following command:
 % makeglossaries main.acn && makeglossaries main.glo
 %
 
@@ -14,22 +14,22 @@
 % \newglossaryentry{API}{name=API, description=Application Programming Interface}
 % \newacronym{API}{API}{Application Programming Interface}
 
-\newcommand{\newglossarywacronym}[3]{
-    %%% The glossary entry the acronym links to   
-    \newglossaryentry{#1_gls}{
-        name={#1},
-        long={#2},
-        description={#3}
-    }
+\newcommand{\newglossarywacronym}[4][]{
+  %%% The glossary entry the acronym links to
+  \newglossaryentry{#2_gls}{
+    name={#2},
+    long={#3},
+    description={#4}
+  }
 
-    % Acronym pointing to glossary
-    \newglossaryentry{#1}{
-        type=\acronymtype,
-        name={#1},
-        description={#2},
-        first={#2 (#1)\glsadd{#1_gls}},
-        see=[Glossary:]{#1_gls}
-    }
+  % Acronym pointing to glossary
+  \newglossaryentry{#2}{
+    type=\acronymtype,
+    name={#2},
+    description={#3},
+    first={\ifx\relax#1\relax#3\else#1\fi\ (#2)\glsadd{#2_gls}},
+    see=[Glossary:]{#2_gls}
+  }
 }
 
 % Abkürzungen
