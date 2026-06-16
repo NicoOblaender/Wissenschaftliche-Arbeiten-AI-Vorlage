@@ -98,7 +98,7 @@ Die Studienarbeit ist eine reine Hochschularbeit. Aus diesem Grund wird der Ort 
 
 ### Sonstige
 
-Für andere als die vordefinierten Types kann der Dokumenttyp direkt in das Feld `documentType` eingetragen werden (z.B. Hausarbeit). Unternehmensinformationen werden dann ausgeblendet.
+Für andere als die vordefinierten Types kann der Dokumenttyp (z.B. Hausarbeit) auch als individueller Text direkt in das Feld `documentType` eingetragen werden. Dieser Text wird dann auf dem Deckblatt ausgegeben. Es greifen in diesem Fall allerdings keine bedingten Formatierungen oder Ausblendungen (wie z.B. das automatische Ausblenden des Unternehmens bei einer Studienarbeit), sondern es wird der Standardumfang der Vorlage gerendert.
 
 # Komponenten einer Wissenschaftlichen Arbeit
 
