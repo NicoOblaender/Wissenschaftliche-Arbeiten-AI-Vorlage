@@ -156,6 +156,16 @@ Weitere Befehle für den Text:
 * `\glspl{Label}` --> Plural (hängt ein "s" an)
 * `\glsdisp{Label}{Eigener Text}` --> Verlinkt auf das Label, zeigt aber deinen eigenen Text an.
 
+## Zitierweise (Citation Style)
+
+Die Zitierweise lässt sich für die gesamte Vorlage zentral über die Datei `settings/document.tex` steuern. Suche dort nach der Variablen `\citationStyle` und setze sie auf einen der folgenden Werte:
+
+* `ieee`: Numerische Zitierweise (Standard in der Informatik/Ingenieurswesen). Im Text erscheinen Zahlen in eckigen Klammern, z.B. `[5]`.
+* `harvard`: Inline-Zitierweise (Standard in vielen Wirtschafts- und Geisteswissenschaften). Im Text erscheint der Verweis direkt im Fließtext, z.B. `(Autor, 2014)`.
+* `footnote`: Fußnoten-Zitierweise (häufiger deutscher Standard). Im Text erscheint eine hochgestellte Zahl und die Quellenangabe `Autor, 2014` wandert in die Fußnote.
+
+**Wichtig:** Verwende im Text **immer** den Befehl `\autocite{Key}`. Das Template kümmert sich dann automatisch darum, diesen Befehl in die korrekte Formatierung (Fußnote, eckige Klammern oder Fließtext) zu übersetzen!
+
 ## Appendix
 
 (Beispielhafter Anhang)
