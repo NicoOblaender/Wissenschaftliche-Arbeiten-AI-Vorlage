@@ -46,7 +46,12 @@
         \textbf{\documentPeriodPhrase}                     & \ifDocType{T3100}{2 Semester}{\documentPeriod} \\
         \textbf{\matriculationNumberPhrase, \coursePhrase} & \matriculationNumber, \course  \\
         \ifDocType{T3100}{}{%
-          \textbf{\companyPhrase}                            & \companyName, \companyLocation \\
+          \IfStrEq{\showCompanyLocationOnOwnLine}{true}{%
+            \textbf{\companyPhrase}                            & \companyName \\
+            \textbf{\locationPhrase}                           & \companyLocation \\
+          }{%
+            \textbf{\companyPhrase}                            & \companyName, \companyLocation \\
+          }%
         }%
         \ifDocType{T3100}{}{%
           \textbf{\tutorPhrase}                              & \tutor                         \\
